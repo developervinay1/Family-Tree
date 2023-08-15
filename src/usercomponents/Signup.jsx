@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 export default function Signup() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const signUpUser = () => {};
   return (
     <div>
       <div class="bg-grey-lighter min-h-screen flex flex-col">
@@ -14,7 +17,7 @@ export default function Signup() {
               class="block border border-grey-light w-full p-3 rounded mb-4"
               name="email"
               placeholder="Email"
-              //   onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <input
@@ -22,12 +25,12 @@ export default function Signup() {
               class="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
               placeholder="Password"
-              //   onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <Button
               type="submit"
-              //   onClick={logInUser}
+              onClick={signUpUser}
               style={{ backgroundColor: "#fb923c" }}
               class="w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
             >

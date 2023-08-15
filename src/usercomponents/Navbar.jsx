@@ -22,7 +22,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, UserPlus } from "lucide-react/dist/esm/lucide-react";
+import { User, User2, UserPlus } from "lucide-react/dist/esm/lucide-react";
 
 import { Button } from "@/components/ui/button.jsx";
 import { Link } from "react-router-dom";
@@ -74,7 +74,10 @@ export default function Navbar() {
         <div id="other">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline">Account</Button>
+              <Button variant="outline">
+                {" "}
+                <User2 className="h-4 w-4" />
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
               {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
