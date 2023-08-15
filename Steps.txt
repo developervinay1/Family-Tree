@@ -1,0 +1,7 @@
+What To Do ?
+
+Steps:
+
+1. Configure Firebase with React JS
+2. Add Authentication and setup secure routes
+3. Create sessions for user and show header navigation data based on user authentication
