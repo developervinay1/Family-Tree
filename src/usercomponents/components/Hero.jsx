@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <div id="heroSection">
+    <div id="heroSection" className="max-w-7xl m-auto">
       <div id="heroRow1" className="space-y-6">
         <h1 className="text-4xl font-bold">
           Discover Your Roots: Unveiling the Tapestry of Generations

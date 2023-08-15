@@ -16,3 +16,37 @@
 #heroRow2 img {
   width: 100%;
 }
+
+#fixedImage {
+  position: relative;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
+  width: 100%;
+  height: 600px;
+  background-image: url("https://images.unsplash.com/photo-1687360441296-fddbccf0acb3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2370&q=80");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fixedOverlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.436);
+}
+
+#fixedContent {
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
