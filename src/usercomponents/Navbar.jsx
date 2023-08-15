@@ -1,33 +1,46 @@
 import React from "react";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User, User2, UserPlus } from "lucide-react/dist/esm/lucide-react";
+import {
+  LogIn,
+  LogInIcon,
+  LogOut,
+  User,
+  User2,
+  UserPlus,
+} from "lucide-react/dist/esm/lucide-react";
+import { auth } from "../../firebase";
 
 import { Button } from "@/components/ui/button.jsx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const user = localStorage.getItem("userEmail");
+  const signUserOut = () => {
+    signOut(auth)
+      .then(() => {
+        alert("Logged Out");
+        localStorage.clear();
+        navigate("/");
+        location.reload();
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   const navigationItems = [
     {
       id: 1,
@@ -74,8 +87,7 @@ export default function Navbar() {
         <div id="other">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline">
-                {" "}
+              <Button onClick={signUserOut} variant="outline">
                 <User2 className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -83,18 +95,47 @@ export default function Navbar() {
               {/* <DropdownMenuLabel>My Account</DropdownMenuLabel> */}
               {/* <DropdownMenuSeparator /> */}
               <DropdownMenuGroup>
-                <DropdownMenuItem>
-                  <Link to={"/login"} className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Login</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link to={"/signup"} className="flex items-center">
-                    <UserPlus className="mr-2 h-4 w-4" />
-                    <span>Signup</span>
-                  </Link>
-                </DropdownMenuItem>
+                {user ? (
+                  <div>
+                    <DropdownMenuItem>
+                      <Button variant="link">
+                        <Link to={"/signup"} className="flex items-center">
+                          <UserPlus className="mr-2 h-4 w-4" />
+                          <span>Profile</span>
+                        </Link>
+                      </Button>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Button
+                        variant="link"
+                        onClick={signUserOut}
+                        className="flex items-center"
+                      >
+                        <LogOut className="mr-2 h-4 w-4" />
+                        <span>Log Out</span>
+                      </Button>
+                    </DropdownMenuItem>
+                  </div>
+                ) : (
+                  <div>
+                    <DropdownMenuItem>
+                      <Button variant="link">
+                        <Link to={"/login"} className="flex items-center">
+                          <LogInIcon className="mr-2 h-4 w-4" />
+                          <span>Login</span>
+                        </Link>
+                      </Button>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Button variant="link">
+                        <Link to={"/signup"} className="flex items-center">
+                          <UserPlus className="mr-2 h-4 w-4" />
+                          <span>Signup</span>
+                        </Link>
+                      </Button>
+                    </DropdownMenuItem>
+                  </div>
+                )}
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>

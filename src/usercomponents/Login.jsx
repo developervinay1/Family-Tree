@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate();
   const logInUser = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -14,6 +15,8 @@ export default function Login() {
         const user = userCredential.user;
         localStorage.setItem("userEmail", user.email);
         localStorage.setItem("userId", user.uid);
+        navigate("/");
+        location.reload();
         // ...
       })
       .catch((error) => {
