@@ -38,7 +38,7 @@ export default function Navbar() {
         location.reload();
       })
       .catch((error) => {
-        // An error happened.
+        console.log(error);
       });
   };
   const navigationItems = [
