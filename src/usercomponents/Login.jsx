@@ -12,7 +12,8 @@ export default function Login() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        alert("Sign In Success", user.email);
+        localStorage.setItem("userEmail", user.email);
+        localStorage.setItem("userId", user.uid);
         // ...
       })
       .catch((error) => {
