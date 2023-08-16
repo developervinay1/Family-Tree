@@ -8,7 +8,7 @@ export default function Testing() {
   const query = collection(db, "Users");
   const [docs, loading, error] = useCollectionData(query);
   return (
-    <div className="max-w-7xl m-auto px-12 py-12">
+    <div className="max-w-7xl m-auto px-12 py-12 relative">
       {loading && <h1>Loading Data</h1>}
       <ul className="list-decimal greatGrandParents">
         {docs?.map((data) => {
