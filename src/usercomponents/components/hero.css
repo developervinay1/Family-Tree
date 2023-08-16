@@ -50,3 +50,13 @@
   align-items: center;
   color: white;
 }
+
+.grandParents {
+  display: flex;
+}
+
+.parents {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}

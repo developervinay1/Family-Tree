@@ -10,11 +10,17 @@ export default function Testing() {
   return (
     <div className="max-w-7xl m-auto px-12 py-12">
       {loading && <h1>Loading Data</h1>}
-      <ul className="list-decimal">
+      <ul className="list-decimal greatGrandParents">
         {docs?.map((data) => {
           return (
             <div key={data.Name}>
-              <li> {data.Name} </li>
+              <li>
+                {data.Name}
+                <img
+                  src={data.Image}
+                  className="w-[200px] object-cover h-[200px]"
+                />
+              </li>
               <ChildrenListing path={`Users/${data.Name}/Childs`} />
             </div>
           );

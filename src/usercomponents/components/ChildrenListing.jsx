@@ -10,11 +10,17 @@ export default function ChildrenListing({ path }) {
   return (
     <div>
       {loading && <h1>Loading</h1>}
-      <ul className="list-disc px-6">
+      <ul className="list-disc px-6 grandParents">
         {docs?.map((data) => {
           return (
             <div key={data.Name}>
-              <li>{data.Name}</li>
+              <li>
+                {data.Name}
+                <img
+                  src={data.Image}
+                  className="w-[200px] object-cover h-[200px]"
+                />
+              </li>
               <AnotherChild path={`${path}/${data.Name}/Childs`} />
             </div>
           );
