@@ -4,9 +4,9 @@ import { collection } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import Childs from "./Childs";
 import AddData from "./AddData";
+import AddParentData from "./AddParentData";
 
 export default function AnotherChild({ path }) {
-  console.log(path);
   const query = collection(db, path);
   const [docs, loading, error] = useCollectionData(query);
   return (
@@ -26,12 +26,12 @@ export default function AnotherChild({ path }) {
               /> */}
                   </li>
                   <Childs path={`${path}/${data.Name}/Childs/`} />
-                  <AddData path={`${path}`} />
                 </div>
               )}
             </div>
           );
         })}
+        <AddParentData path={`${path}`} />
       </ul>
     </div>
   );

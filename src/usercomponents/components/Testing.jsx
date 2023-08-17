@@ -28,10 +28,10 @@ export default function Testing() {
                   <ChildrenListing path={`Users/${data.Name}/Childs`} />
                 </div>
               )}
-              <AddData path={`Users/`} />
             </div>
           );
         })}
+        <AddData path={`Users/`} />
       </ul>
     </div>
   );
