@@ -26,9 +26,9 @@ export default function Testing() {
                 /> */}
                   </li>
                   <ChildrenListing path={`Users/${data.Name}/Childs`} />
-                  <AddParentData path={`Users/`} />
                 </div>
               )}
+              <AddData path={`Users/`} />
             </div>
           );
         })}

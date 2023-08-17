@@ -25,9 +25,9 @@ export default function ChildrenListing({ path }) {
               /> */}
                   </li>
                   <AnotherChild path={`${path}/${data.Name}/Childs`} />
-                  <AddData path={path} />
                 </div>
               )}
+              <AddData path={path} />
             </div>
           );
         })}
