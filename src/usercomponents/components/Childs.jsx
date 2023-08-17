@@ -11,11 +11,7 @@ export default function Childs({ path }) {
       {loading && <h1>Loading</h1>}
       <ul className="list-disc px-6">
         {docs?.map((data) => {
-          return (
-            <div key={data.Name}>
-              <li>{data.Name}</li>
-            </div>
-          );
+          return <div key={data.Name}>{data.Name && <li>{data.Name}</li>}</div>;
         })}
       </ul>
     </div>

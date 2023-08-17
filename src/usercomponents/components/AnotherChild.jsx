@@ -16,15 +16,19 @@ export default function AnotherChild({ path }) {
         {docs?.map((data) => {
           return (
             <div key={data.Name}>
-              <li>
-                {data.Name}
-                {/* <img
-                  src={data.Image}
-                  className="w-[200px] object-cover h-[200px]"
-                /> */}
-              </li>
-              <Childs path={`${path}/${data.Name}/Childs/`} />
-              <AddData path={`${path}`} />
+              {data.Name && (
+                <div>
+                  <li>
+                    {data.Name}
+                    {/* <img
+                src={data.Image}
+                className="w-[200px] object-cover h-[200px]"
+              /> */}
+                  </li>
+                  <Childs path={`${path}/${data.Name}/Childs/`} />
+                  <AddData path={`${path}`} />
+                </div>
+              )}
             </div>
           );
         })}

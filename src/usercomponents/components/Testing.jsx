@@ -16,15 +16,19 @@ export default function Testing() {
         {docs?.map((data) => {
           return (
             <div key={data.Name}>
-              <li>
-                {data.Name}
-                {/* <img
+              {data.Name && (
+                <div>
+                  <li>
+                    {data.Name}
+                    {/* <img
                   src={data.Image}
                   className="w-[200px] object-cover h-[200px]"
                 /> */}
-              </li>
-              <ChildrenListing path={`Users/${data.Name}/Childs`} />
-              <AddParentData path={`Users/`} />
+                  </li>
+                  <ChildrenListing path={`Users/${data.Name}/Childs`} />
+                  <AddParentData path={`Users/`} />
+                </div>
+              )}
             </div>
           );
         })}
