@@ -3,6 +3,8 @@ import React from "react";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { db } from "../../../firebase";
 import ChildrenListing from "./ChildrenListing";
+import AddData from "./AddData";
+import AddParentData from "./AddParentData";
 
 export default function Testing() {
   const query = collection(db, "Users");
@@ -16,12 +18,13 @@ export default function Testing() {
             <div key={data.Name}>
               <li>
                 {data.Name}
-                <img
+                {/* <img
                   src={data.Image}
                   className="w-[200px] object-cover h-[200px]"
-                />
+                /> */}
               </li>
               <ChildrenListing path={`Users/${data.Name}/Childs`} />
+              <AddParentData path={`Users/`} />
             </div>
           );
         })}
